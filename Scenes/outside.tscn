@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dgicjuf6kxige"]
+[gd_scene load_steps=14 format=3 uid="uid://dgicjuf6kxige"]
 
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_pbbjs"]
 [ext_resource type="PackedScene" uid="uid://bdo0hwrwd0jtk" path="res://Scenes/player.tscn" id="2_0n7m1"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://dk8x2i7j3n26c" path="res://Inventory/slot.tscn" id="4_cdhee"]
 [ext_resource type="PackedScene" uid="uid://brajcxjusccvt" path="res://Scenes/chest.tscn" id="7_hqnor"]
 [ext_resource type="Script" path="res://Inventory/inventory_data.gd" id="8_en8sx"]
+[ext_resource type="PackedScene" uid="uid://ekgg6sfl4rxp" path="res://Scenes/scene_mover.tscn" id="10_st27p"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4mmgg"]
 texture = ExtResource("2_64nkn")
@@ -181,3 +182,6 @@ offset_bottom = 32.0
 [node name="Chest" parent="." instance=ExtResource("7_hqnor")]
 position = Vector2(231, 133)
 inventory_data = SubResource("Resource_bgv01")
+
+[node name="SceneMover" parent="." instance=ExtResource("10_st27p")]
+position = Vector2(139, 19)

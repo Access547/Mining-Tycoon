@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=4 format=3 uid="uid://n2ft4a72cnar"]
+
+[ext_resource type="Script" path="res://Items/item_data.gd" id="1_y174q"]
+[ext_resource type="Texture2D" uid="uid://dkpbe1fuioih5" path="res://Assets/Art/Environment/Rocks/Rocks.png" id="2_owhm2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cqada"]
+atlas = ExtResource("2_owhm2")
+region = Rect2(64, 64, 16, 16)
+
+[resource]
+script = ExtResource("1_y174q")
+name = "Copper Ore"
+description = "a lump of Copper Ore"
+stackable = true
+value = 10
+texture = SubResource("AtlasTexture_cqada")

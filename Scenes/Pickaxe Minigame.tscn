@@ -1,0 +1,117 @@
+[gd_scene load_steps=12 format=3 uid="uid://h1ybwhij6nr4"]
+
+[ext_resource type="Script" path="res://Scripts/Pickaxe Minigame.gd" id="1_tof0a"]
+[ext_resource type="Texture2D" uid="uid://evq7trqqwddu" path="res://Assets/Art/GUI/Minigames/Pickaxe Minigame.png" id="2_dbkfm"]
+[ext_resource type="Texture2D" uid="uid://dq0c0ij2c78hn" path="res://Assets/Art/GUI/Minigames/Pickaxe Minigame Cursor.png" id="3_86k8e"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5nyqs"]
+size = Vector2(4, 40)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3e6jx"]
+size = Vector2(16, 40)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rg36s"]
+size = Vector2(12, 40)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h1p6b"]
+size = Vector2(12, 40)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pk4lp"]
+size = Vector2(16, 40)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ucok5"]
+size = Vector2(16, 40)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a44np"]
+size = Vector2(107, 40)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dn526"]
+size = Vector2(107, 40)
+
+[node name="Pickaxe Minigame" type="PanelContainer"]
+self_modulate = Color(1, 1, 1, 0)
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 8
+script = ExtResource("1_tof0a")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_bottom = 8
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer"]
+layout_mode = 2
+texture = ExtResource("2_dbkfm")
+
+[node name="Cursor" type="Sprite2D" parent="."]
+position = Vector2(25, 24)
+texture = ExtResource("3_86k8e")
+
+[node name="Area2D" type="Area2D" parent="Cursor"]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cursor/Area2D"]
+shape = SubResource("RectangleShape2D_5nyqs")
+
+[node name="Inner" type="Area2D" parent="." groups=["Inner"]]
+position = Vector2(140, 5)
+collision_layer = 4
+collision_mask = 4
+
+[node name="middle" type="CollisionShape2D" parent="Inner"]
+position = Vector2(4, 19)
+shape = SubResource("RectangleShape2D_3e6jx")
+
+[node name="Outer" type="Area2D" parent="." groups=["Outer"]]
+collision_layer = 4
+collision_mask = 4
+
+[node name="left" type="CollisionShape2D" parent="Outer"]
+position = Vector2(130, 24)
+shape = SubResource("RectangleShape2D_rg36s")
+debug_color = Color(0.823529, 0, 0.956863, 0.027451)
+
+[node name="right" type="CollisionShape2D" parent="Outer"]
+position = Vector2(158, 24)
+shape = SubResource("RectangleShape2D_h1p6b")
+debug_color = Color(0.823529, 0, 0.956863, 0.0588235)
+
+[node name="Outermost" type="Area2D" parent="." groups=["Outermost"]]
+collision_layer = 4
+collision_mask = 4
+
+[node name="left" type="CollisionShape2D" parent="Outermost"]
+position = Vector2(116, 24)
+shape = SubResource("RectangleShape2D_pk4lp")
+debug_color = Color(0, 0.627451, 0.494118, 0.129412)
+
+[node name="right" type="CollisionShape2D" parent="Outermost"]
+position = Vector2(172, 24)
+shape = SubResource("RectangleShape2D_ucok5")
+debug_color = Color(0, 0.627451, 0.494118, 0.129412)
+
+[node name="None" type="Area2D" parent="." groups=["None"]]
+collision_layer = 4
+collision_mask = 4
+
+[node name="Left" type="CollisionShape2D" parent="None"]
+position = Vector2(54.5, 24)
+shape = SubResource("RectangleShape2D_a44np")
+debug_color = Color(0.647059, 0.521569, 0, 0.0392157)
+
+[node name="Right" type="CollisionShape2D" parent="None"]
+position = Vector2(233.5, 24)
+shape = SubResource("RectangleShape2D_dn526")
+debug_color = Color(0.647059, 0.521569, 0, 0.0392157)
+
+[connection signal="area_entered" from="Cursor/Area2D" to="." method="_on_area_2d_area_entered"]

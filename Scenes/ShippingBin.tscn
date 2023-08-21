@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=3 uid="uid://c2kdefylbxb3r"]
+
+[ext_resource type="Script" path="res://Scripts/ShippingBin.gd" id="1_q6271"]
+[ext_resource type="Script" path="res://Inventory/inventory_data.gd" id="2_sre6f"]
+[ext_resource type="Texture2D" uid="uid://df22tyx2dmtol" path="res://Assets/Art/Interactables/Chest.png" id="2_u1neq"]
+
+[sub_resource type="Resource" id="Resource_5j8vi"]
+script = ExtResource("2_sre6f")
+slot_datas = Array[Resource("res://Inventory/slot_data.gd")]([null, null, null, null, null])
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rsyub"]
+size = Vector2(16, 13)
+
+[node name="ShippingBin" type="StaticBody2D" groups=["Interactable", "external_inventory"]]
+position = Vector2(8, 8)
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_q6271")
+inventory_data = SubResource("Resource_5j8vi")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_u1neq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(0, 1.5)
+shape = SubResource("RectangleShape2D_rsyub")

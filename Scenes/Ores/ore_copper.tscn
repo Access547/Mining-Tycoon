@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://bdqs78btrygxt"]
+
+[ext_resource type="Script" path="res://Scripts/ore.gd" id="1_pvbr8"]
+[ext_resource type="Texture2D" uid="uid://dkpbe1fuioih5" path="res://Assets/Art/Environment/Rocks/Rocks.png" id="2_k6rws"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1exbf"]
+atlas = ExtResource("2_k6rws")
+region = Rect2(64, 96, 16, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vlcee"]
+size = Vector2(14, 15.5)
+
+[node name="Ore" type="StaticBody2D" groups=["Ore"]]
+position = Vector2(0, -1)
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_pvbr8")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(8, 9)
+texture = SubResource("AtlasTexture_1exbf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["Ore"]]
+visible = false
+position = Vector2(8, 15.75)
+shape = SubResource("RectangleShape2D_vlcee")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(0, 23)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]

@@ -16,8 +16,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	print(str(canMove))
-	if canMove && Input.is_action_just_pressed("interact"):
+	if canMove:
 		move_scenes()
 		
 		

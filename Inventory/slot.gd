@@ -5,6 +5,10 @@ extends PanelContainer
 signal slot_clicked(index: int, button: int)
 
 
+func _ready():
+		if !has_signal(str(gui_input)):
+			gui_input.connect(_on_gui_input)
+
 #Sets the data for a specific slot (tells you what item is in that slot)
 func set_slot_data(slot_data: SlotData):
 	var item_data = slot_data.item_data
@@ -21,6 +25,7 @@ func set_slot_data(slot_data: SlotData):
 
 
 func _on_gui_input(event):
+	print("dwadwa")
 	if event is InputEventMouseButton \
 			and (event.button_index == MOUSE_BUTTON_LEFT \
 			or event.button_index == MOUSE_BUTTON_RIGHT) \

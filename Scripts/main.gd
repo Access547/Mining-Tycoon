@@ -8,6 +8,7 @@ const PickUp = preload("res://Items/pickup.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$Player.position = Vector2(150,100)
 	player.toggle_inventory.connect(toggle_inventory_interface)
 	inventory_interface.set_player_inventory_data(player.inventory_data)
 	

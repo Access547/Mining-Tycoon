@@ -22,7 +22,8 @@ func populate_item_grid(inventory_data: InventoryData):
 		var slot = slot.instantiate()
 		itemGrid.add_child(slot)
 		
-		slot.slot_clicked.connect(inventory_data.on_slot_clicked)
+		if !inventory_data.has_signal(str(slot.slot_clicked)):
+			slot.slot_clicked.connect(inventory_data.on_slot_clicked)
 		
 		if slotData:
 			slot.set_slot_data(slotData)

@@ -1,17 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://ekgg6sfl4rxp"]
+[gd_scene load_steps=2 format=3 uid="uid://ekgg6sfl4rxp"]
 
 [ext_resource type="Script" path="res://Scripts/SceneMover.gd" id="1_m7mrg"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_52l4s"]
-size = Vector2(42, 18)
 
 [node name="SceneMover" type="Area2D"]
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_m7mrg")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(21, 9)
-shape = SubResource("RectangleShape2D_52l4s")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

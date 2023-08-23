@@ -11,13 +11,14 @@ config_version=5
 [application]
 
 config/name="Finish or suicide"
-run/main_scene="res://Scenes/outside.tscn"
+run/main_scene="res://Scenes/levels/base.tscn"
 config/features=PackedStringArray("4.1", "Mobile")
 
 [autoload]
 
 PlayerManager="*res://Scripts/player_manager.gd"
 NumberManager="*res://Scripts/Singletons/NumberManager.gd"
+SceneManager="*res://Scripts/Singletons/sceneManager.gd"
 
 [display]
 

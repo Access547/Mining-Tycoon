@@ -5,10 +5,18 @@ const PickUp = preload("res://Items/pickup.tscn")
 @onready var player = $Player
 @onready var inventory_interface = $UI/InventoryInterface
 
+var spawnPos
+
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$Player.position = Vector2(150,100)
+	
+	#Old shit from trying to get the player to spawn correctly, currently band-aided
+#	if PlayerManager.playerSpawnPos != null:
+#		print(str(get_node(PlayerManager.playerSpawnPos)))
+#		$Player.position = get_node(str("/", PlayerManager.playerSpawnPos)).position
 	player.toggle_inventory.connect(toggle_inventory_interface)
 	inventory_interface.set_player_inventory_data(player.inventory_data)
 	

@@ -11,15 +11,17 @@ var canMove: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	if !has_signal(str(body_entered)):
+			body_entered.connect(_on_body_entered)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if canMove:
-		move_scenes()
+		if Input.is_action_just_pressed("space_bar"):
+			move_scenes()
 		
-		
+	
 
 
 func _on_body_entered(body):
@@ -28,10 +30,13 @@ func _on_body_entered(body):
 
 		
 func move_scenes():
-		createdPackage = ScenePacker.create_package(owner)
-		print(createdPackage)
-		ResourceSaver.save(createdPackage, str(saveFile, levelName))
 		
-		get_tree().change_scene_to_file(str(saveFile, scene))
+		createdPackage = ScenePacker.create_package(owner)
+		ResourceSaver.save(createdPackage, str(saveFile,"saved/", levelName))
+		
+		if FileAccess.file_exists(str("res://Scenes/levels/saved/", scene)):
+			get_tree().change_scene_to_file(str(saveFile,"saved/", scene))
+		else:
+			get_tree().change_scene_to_file(str(saveFile, scene))
 
 		

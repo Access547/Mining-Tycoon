@@ -2,11 +2,11 @@ extends Node
 
 var player
 var playerCanMove = true
-var playerStartPoint
+var playerSpawnPos
 
 func use_slot_data(slot_data: SlotData):
 	slot_data.item_data.use(player)
 
-func place_player(location: Vector2, player):
-	player.position = location
 	
+func _process(delta):
+	print(str(playerSpawnPos))

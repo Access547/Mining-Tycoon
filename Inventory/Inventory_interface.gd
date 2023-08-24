@@ -39,7 +39,6 @@ func clear_external_inventory():
 		external_inventory_owner = null
 
 func on_inventory_interact(inventory_data: InventoryData, index: int, button: int):
-	print("dwa")
 	match [grabbed_slot_data, button]:
 		[null, MOUSE_BUTTON_LEFT]:
 			grabbed_slot_data = inventory_data.grab_slot_data(index)

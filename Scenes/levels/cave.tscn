@@ -1,20 +1,18 @@
-[gd_scene load_steps=24 format=3]
+[gd_scene load_steps=23 format=3 uid="uid://dlrckltitql55"]
 
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_bhwo3"]
-[ext_resource type="Texture2D" path="res://Assets/Art/Environment/Tilesets/forest_/forest_.png" id="2_63g13"]
-[ext_resource type="Texture2D" path="res://Assets/Art/Environment/Tilesets/cave_ [version 1.0]/cave_.png" id="3_2vx36"]
-[ext_resource type="PackedScene" path="res://Scenes/player.tscn" id="3_mvg2u"]
-[ext_resource type="Resource" path="res://Inventory/test_inventory.tres" id="4_txnh7"]
-[ext_resource type="Script" path="res://Scripts/player.gd" id="5_7c4xp"]
+[ext_resource type="Texture2D" uid="uid://c04pp1nu16571" path="res://Assets/Art/Environment/Tilesets/forest_/forest_.png" id="2_63g13"]
+[ext_resource type="Texture2D" uid="uid://c20iwuwnojxrk" path="res://Assets/Art/Environment/Tilesets/cave_ [version 1.0]/cave_.png" id="3_2vx36"]
+[ext_resource type="PackedScene" uid="uid://bdo0hwrwd0jtk" path="res://Scenes/player.tscn" id="3_mvg2u"]
+[ext_resource type="Resource" uid="uid://c4wqnyy1f1gmf" path="res://Inventory/test_inventory.tres" id="4_txnh7"]
 [ext_resource type="Script" path="res://Inventory/Inventory_interface.gd" id="5_8rhgm"]
-[ext_resource type="PackedScene" path="res://Inventory/inventory.tscn" id="6_7yyv2"]
-[ext_resource type="Texture2D" path="res://Assets/Art/Characters/Player/Player.png" id="7_a3q7c"]
-[ext_resource type="PackedScene" path="res://Inventory/slot.tscn" id="7_ywtge"]
-[ext_resource type="Script" path="res://Inventory/inventory.gd" id="10_inylm"]
-[ext_resource type="PackedScene" path="res://Scenes/scene_mover.tscn" id="11_sd6t8"]
-[ext_resource type="Script" path="res://Inventory/slot.gd" id="12_mvedf"]
-[ext_resource type="Texture2D" path="res://Assets/Art/Environment/Rocks/Rocks.png" id="13_3m2gd"]
-[ext_resource type="Script" path="res://Scripts/SceneMover.gd" id="15_ib23w"]
+[ext_resource type="PackedScene" uid="uid://c1v6skgw0d1x6" path="res://Inventory/inventory.tscn" id="6_7yyv2"]
+[ext_resource type="PackedScene" uid="uid://dk8x2i7j3n26c" path="res://Inventory/slot.tscn" id="7_ywtge"]
+[ext_resource type="PackedScene" uid="uid://8r1yekr2pg2l" path="res://Scenes/Ores/ore.tscn" id="10_ra1ic"]
+[ext_resource type="Resource" uid="uid://cwhf73ueqc3p0" path="res://Items/Ores/Ore_Iron.tres" id="11_10trf"]
+[ext_resource type="PackedScene" uid="uid://ekgg6sfl4rxp" path="res://Scenes/scene_mover.tscn" id="11_sd6t8"]
+[ext_resource type="Script" path="res://Inventory/slot_data.gd" id="12_6t0ti"]
+[ext_resource type="Resource" uid="uid://n2ft4a72cnar" path="res://Items/Ores/Ore_Copper.tres" id="14_03jqe"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4mmgg"]
 texture = ExtResource("2_63g13")
@@ -304,29 +302,29 @@ texture = ExtResource("3_2vx36")
 sources/0 = SubResource("TileSetAtlasSource_4mmgg")
 sources/1 = SubResource("TileSetAtlasSource_8m6sl")
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_hw2s2"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("7_a3q7c")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_vrsb0"]
-size = Vector2(11, 15)
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_q13tg"]
-radius = 23.1948
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_0rwf6"]
-atlas = ExtResource("13_3m2gd")
-region = Rect2(0, 0, 16, 16)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6o00a"]
 size = Vector2(48, 20)
+
+[sub_resource type="Resource" id="Resource_xddrk"]
+script = ExtResource("12_6t0ti")
+item_data = ExtResource("11_10trf")
+quantity = 1
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_xrnwm"]
+load_path = "res://.godot/imported/Rocks.png-560e980939a33086a5cfbeb4338a831a.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uwrlk"]
+atlas = SubResource("CompressedTexture2D_xrnwm")
+region = Rect2(0, 32, 16, 32)
+
+[sub_resource type="Resource" id="Resource_f878f"]
+script = ExtResource("12_6t0ti")
+item_data = ExtResource("14_03jqe")
+quantity = 1
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uxfvp"]
+atlas = SubResource("CompressedTexture2D_xrnwm")
+region = Rect2(64, 96, 16, 32)
 
 [node name="Cave" type="Node2D"]
 script = ExtResource("1_bhwo3")
@@ -336,31 +334,9 @@ tile_set = SubResource("TileSet_y137f")
 format = 2
 layer_0/tile_data = PackedInt32Array(0, 1245185, 1, 1, 1114113, 3, 2, 1114113, 3, 3, 1114113, 3, 4, 1114113, 3, 5, 1114113, 3, 6, 1114113, 3, 7, 1114113, 3, 8, 1114113, 3, 9, 1114113, 3, 10, 1114113, 3, 11, 1114113, 3, 12, 1114113, 3, 13, 1114113, 3, 14, 1114113, 3, 15, 1114113, 3, 16, 1114113, 3, 17, 1114113, 3, 19, 1310721, 1, 65555, 1048577, 2, 131091, 1048577, 2, 196627, 1048577, 2, 262163, 1048577, 2, 65536, 1179649, 2, 131072, 1179649, 2, 196608, 1179649, 2, 262144, 1179649, 2, 327680, 1179649, 2, 393216, 1179649, 2, 458752, 1179649, 2, 524288, 1179649, 2, 589824, 1179649, 2, 65537, 458753, 6, 65538, 458753, 6, 65539, 458753, 6, 131075, 458753, 6, 131076, 458753, 6, 131077, 393217, 3, 131078, 458753, 6, 196613, 458753, 6, 262148, 458753, 6, 262147, 458753, 6, 262146, 458753, 6, 196611, 458753, 6, 196612, 458753, 6, 196610, 458753, 6, 196609, 458753, 6, 131073, 458753, 6, 262145, 458753, 6, 327681, 458753, 6, 393217, 458753, 6, 458753, 458753, 6, 524289, 458753, 6, 589825, 458753, 6, 524290, 458753, 6, 524291, 458753, 6, 589827, 458753, 6, 589828, 458753, 6, 589829, 458753, 6, 589830, 458753, 6, 589831, 458753, 6, 589832, 458753, 6, 589833, 458753, 6, 589834, 524289, 4, 589835, 458753, 6, 589836, 458753, 6, 589837, 458753, 6, 589838, 458753, 6, 589839, 458753, 6, 589840, 458753, 6, 589841, 458753, 6, 589826, 458753, 6, 458754, 458753, 6, 393218, 458753, 6, 327682, 458753, 6, 131074, 458753, 6, 131079, 458753, 6, 131080, 458753, 6, 131081, 458753, 6, 131082, 458753, 6, 131083, 458753, 6, 65547, 458753, 6, 65548, 458753, 6, 65546, 458753, 6, 65545, 589825, 3, 65544, 458753, 6, 65543, 458753, 6, 65542, 458753, 6, 65541, 458753, 6, 65540, 458753, 6, 131084, 458753, 6, 131085, 458753, 6, 131086, 458753, 6, 131087, 458753, 6, 131088, 458753, 6, 131089, 458753, 6, 65553, 458753, 6, 65552, 589825, 4, 65551, 458753, 6, 65550, 458753, 6, 65549, 524289, 3, 393234, 458753, 6, 458770, 458753, 6, 524306, 458753, 6, 589842, 458753, 6, 524305, 458753, 6, 524304, 458753, 6, 524298, 458753, 6, 524297, 458753, 6, 524296, 458753, 6, 524295, 458753, 6, 524294, 458753, 6, 524293, 458753, 6, 458757, 524289, 4, 458756, 458753, 6, 458755, 458753, 6, 458758, 458753, 6, 524299, 458753, 6, 524300, 458753, 6, 524301, 458753, 6, 524302, 458753, 6, 524303, 458753, 6, 524292, 458753, 6, 393221, 458753, 6, 327685, 458753, 6, 327684, 458753, 6, 327683, 458753, 6, 393219, 458753, 6, 393220, 458753, 6, 327686, 458753, 6, 327687, 589825, 1, 262152, 458753, 6, 262153, 458753, 6, 196617, 458753, 6, 196616, 524289, 2, 196615, 458753, 6, 196614, 458753, 6, 262149, 458753, 6, 262150, 458753, 6, 262151, 458753, 6, 327688, 458753, 6, 393222, 458753, 6, 393223, 458753, 6, 393224, 589825, 1, 393225, 458753, 6, 458759, 458753, 3, 458760, 458753, 6, 458761, 458753, 6, 458762, 458753, 6, 458763, 458753, 6, 458764, 458753, 6, 458765, 458753, 6, 458766, 458753, 6, 458767, 458753, 6, 458768, 458753, 6, 458769, 458753, 6, 393233, 458753, 4, 327697, 458753, 6, 262161, 458753, 6, 196625, 458753, 6, 196624, 458753, 6, 262160, 458753, 6, 327696, 458753, 6, 327695, 458753, 6, 393231, 458753, 6, 393230, 458753, 6, 393229, 458753, 6, 393228, 458753, 4, 327691, 458753, 4, 327690, 458753, 3, 262154, 458753, 6, 327692, 458753, 6, 393227, 458753, 6, 393226, 458753, 6, 393232, 458753, 6, 327693, 458753, 6, 327694, 458753, 6, 262159, 458753, 6, 327689, 458753, 6, 262158, 524289, 1, 262157, 458753, 6, 262156, 458753, 6, 196620, 458753, 6, 196619, 458753, 6, 196618, 458753, 6, 262155, 458753, 6, 196621, 458753, 6, 196622, 458753, 6, 196623, 458753, 4, 655360, 1245185, 2, 655361, 1114113, 1, 655362, 1114113, 1, 655363, 1114113, 1, 655364, 1114113, 1, 655365, 1114113, 1, 655371, 1114113, 1, 655372, 1114113, 1, 655373, 1114113, 1, 655374, 1114113, 1, 655375, 1114113, 1, 655376, 1114113, 1, 655377, 1114113, 1, 655378, 1114113, 1, 655379, 1310721, 2, 589843, 1048577, 2, 524307, 1048577, 2, 458771, 1048577, 2, 393235, 1048577, 2, 327699, 1048577, 2, 327698, 458753, 6, 262162, 458753, 6, 196626, 458753, 4, 131090, 458753, 6, 65554, 458753, 6, 18, 1114113, 3, 655366, 1310721, 2, 655370, 1245185, 2, 655367, 458753, 6, 655368, 458753, 6, 655369, 458753, 6)
 
-[node name="Player" type="CharacterBody2D" parent="." groups=["Player"] instance=ExtResource("3_mvg2u")]
-position = Vector2(150, 106.667)
-collision_layer = 2
-collision_mask = 2
-velocity = Vector2(0, 100)
-script = ExtResource("5_7c4xp")
+[node name="Player" parent="." instance=ExtResource("3_mvg2u")]
+position = Vector2(70, 87)
 inventory_data = ExtResource("4_txnh7")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
-position = Vector2(8, 8)
-sprite_frames = SubResource("SpriteFrames_hw2s2")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
-visible = false
-position = Vector2(6.5, 8.5)
-shape = SubResource("RectangleShape2D_vrsb0")
-
-[node name="Area2D" type="Area2D" parent="Player"]
-collision_layer = 2
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/Area2D"]
-visible = false
-position = Vector2(7, 9)
-shape = SubResource("CircleShape2D_q13tg")
 
 [node name="UI" type="CanvasLayer" parent="."]
 
@@ -372,577 +348,24 @@ offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("5_8rhgm")
 
-[node name="PlayerInventory" type="PanelContainer" parent="UI/InventoryInterface" instance=ExtResource("6_7yyv2")]
+[node name="PlayerInventory" parent="UI/InventoryInterface" instance=ExtResource("6_7yyv2")]
 layout_mode = 0
 offset_left = 10.0
 offset_top = 10.0
 offset_right = 26.0
 offset_bottom = 26.0
-script = ExtResource("10_inylm")
 
-[node name="MarginContainer" type="MarginContainer" parent="UI/InventoryInterface/PlayerInventory"]
-layout_mode = 2
-theme_override_constants/margin_left = 8
-theme_override_constants/margin_top = 8
-theme_override_constants/margin_right = 8
-theme_override_constants/margin_bottom = 8
-
-[node name="ItemGrid" type="GridContainer" parent="UI/InventoryInterface/PlayerInventory/MarginContainer"]
-layout_mode = 2
-columns = 6
-
-[node name="MarginContainer" type="MarginContainer" parent="UI/InventoryInterface/PlayerInventory"]
-layout_mode = 2
-theme_override_constants/margin_left = 8
-theme_override_constants/margin_top = 8
-theme_override_constants/margin_right = 8
-theme_override_constants/margin_bottom = 8
-
-[node name="ItemGrid" type="GridContainer" parent="UI/InventoryInterface/PlayerInventory/MarginContainer"]
-layout_mode = 2
-columns = 6
-
-[node name="@PanelContainer@106" type="PanelContainer" parent="UI/InventoryInterface/PlayerInventory/MarginContainer/ItemGrid" instance=ExtResource("7_ywtge")]
-custom_minimum_size = Vector2(32, 32)
-layout_mode = 2
-tooltip_text = "Iron Ore
-A lump of iron ore"
-script = ExtResource("12_mvedf")
-
-[node name="MarginContainer" type="MarginContainer" parent="UI/InventoryInterface/PlayerInventory/MarginContainer/ItemGrid/@PanelContainer@106"]
-self_modulate = Color(1, 1, 1, 0)
-layout_mode = 2
-theme_override_constants/margin_left = 4
-theme_override_constants/margin_top = 4
-theme_override_constants/margin_right = 4
-theme_override_constants/margin_bottom = 4
-
-[node name="TextureRect" type="TextureRect" parent="UI/InventoryInterface/PlayerInventory/MarginContainer/ItemGrid/@PanelContainer@106/MarginContainer"]
-layout_mode = 2
-texture = SubResource("AtlasTexture_0rwf6")
-expand_mode = 1
-stretch_mode = 5
-
-[node name="QuantityLabel" type="Label" parent="UI/InventoryInterface/PlayerInventory/MarginContainer/ItemGrid/@PanelContainer@106"]
-layout_mode = 2
-size_flags_horizontal = 8
-size_flags_vertical = 0
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 3
-theme_override_font_sizes/font_size = 8
-text = "x3"
-
-[node name="@PanelContainer@107" type="PanelContainer" parent="UI/InventoryInterface/PlayerInventory/MarginContainer/ItemGrid" instance=ExtResource("7_ywtge")]
-custom_minimum_size = Vector2(32, 32)
-layout_mode = 2
-script = ExtResource("12_mvedf")
-
-[node name="MarginContainer" type="MarginContainer" parent="UI/InventoryInterface/PlayerInventory/MarginContainer/ItemGrid/@PanelContainer@107"]
-self_modulate = Color(1, 1, 1, 0)
-layout_mode = 2
-theme_override_constants/margin_left = 4
-theme_override_constants/margin_top = 4
-theme_override_constants/margin_right = 4
-theme_override_constants/margin_bottom = 4
-
-[node name="TextureRect" type="TextureRect" parent="UI/InventoryInterface/PlayerInventory/MarginContainer/ItemGrid/@PanelContainer@107/MarginContainer"]
-layout_mode = 2
-expand_mode = 1
-stretch_mode = 5
-
-[node name="QuantityLabel" type="Label" parent="UI/InventoryInterface/PlayerInventory/MarginContainer/ItemGrid/@PanelContainer@107"]
-visible = false
-layout_mode = 2
-size_flags_horizontal = 8
-size_flags_vertical = 0
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 3
-theme_override_font_sizes/font_size = 8
-text = "x99"
-
-[node name="@PanelContainer@108" type="PanelContainer" parent="UI/InventoryInterface/PlayerInventory/MarginContainer/ItemGrid" instance=ExtResource("7_ywtge")]
-custom_minimum_size = Vector2(32, 32)
-layout_mode = 2
-script = ExtResource("12_mvedf")
-
-[node name="MarginContainer" type="MarginContainer" parent="UI/InventoryInterface/PlayerInventory/MarginContainer/ItemGrid/@PanelContainer@108"]
-self_modulate = Color(1, 1, 1, 0)
-layout_mode = 2
-theme_override_constants/margin_left = 4
-theme_override_constants/margin_top = 4
-theme_override_constants/margin_right = 4
-theme_override_constants/margin_bottom = 4
-
-[node name="TextureRect" type="TextureRect" parent="UI/InventoryInterface/PlayerInventory/MarginContainer/ItemGrid/@PanelContainer@108/MarginContainer"]
-layout_mode = 2
-expand_mode = 1
-stretch_mode = 5
-
-[node name="QuantityLabel" type="Label" parent="UI/InventoryInterface/PlayerInventory/MarginContainer/ItemGrid/@PanelContainer@108"]
-visible = false
-layout_mode = 2
-size_flags_horizontal = 8
-size_flags_vertical = 0
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 3
-theme_override_font_sizes/font_size = 8
-text = "x99"
-
-[node name="@PanelContainer@109" type="PanelContainer" parent="UI/InventoryInterface/PlayerInventory/MarginContainer/ItemGrid" instance=ExtResource("7_ywtge")]
-custom_minimum_size = Vector2(32, 32)
-layout_mode = 2
-script = ExtResource("12_mvedf")
-
-[node name="MarginContainer" type="MarginContainer" parent="UI/InventoryInterface/PlayerInventory/MarginContainer/ItemGrid/@PanelContainer@109"]
-self_modulate = Color(1, 1, 1, 0)
-layout_mode = 2
-theme_override_constants/margin_left = 4
-theme_override_constants/margin_top = 4
-theme_override_constants/margin_right = 4
-theme_override_constants/margin_bottom = 4
-
-[node name="TextureRect" type="TextureRect" parent="UI/InventoryInterface/PlayerInventory/MarginContainer/ItemGrid/@PanelContainer@109/MarginContainer"]
-layout_mode = 2
-expand_mode = 1
-stretch_mode = 5
-
-[node name="QuantityLabel" type="Label" parent="UI/InventoryInterface/PlayerInventory/MarginContainer/ItemGrid/@PanelContainer@109"]
-visible = false
-layout_mode = 2
-size_flags_horizontal = 8
-size_flags_vertical = 0
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 3
-theme_override_font_sizes/font_size = 8
-text = "x99"
-
-[node name="@PanelContainer@110" type="PanelContainer" parent="UI/InventoryInterface/PlayerInventory/MarginContainer/ItemGrid" instance=ExtResource("7_ywtge")]
-custom_minimum_size = Vector2(32, 32)
-layout_mode = 2
-script = ExtResource("12_mvedf")
-
-[node name="MarginContainer" type="MarginContainer" parent="UI/InventoryInterface/PlayerInventory/MarginContainer/ItemGrid/@PanelContainer@110"]
-self_modulate = Color(1, 1, 1, 0)
-layout_mode = 2
-theme_override_constants/margin_left = 4
-theme_override_constants/margin_top = 4
-theme_override_constants/margin_right = 4
-theme_override_constants/margin_bottom = 4
-
-[node name="TextureRect" type="TextureRect" parent="UI/InventoryInterface/PlayerInventory/MarginContainer/ItemGrid/@PanelContainer@110/MarginContainer"]
-layout_mode = 2
-expand_mode = 1
-stretch_mode = 5
-
-[node name="QuantityLabel" type="Label" parent="UI/InventoryInterface/PlayerInventory/MarginContainer/ItemGrid/@PanelContainer@110"]
-visible = false
-layout_mode = 2
-size_flags_horizontal = 8
-size_flags_vertical = 0
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 3
-theme_override_font_sizes/font_size = 8
-text = "x99"
-
-[node name="@PanelContainer@111" type="PanelContainer" parent="UI/InventoryInterface/PlayerInventory/MarginContainer/ItemGrid" instance=ExtResource("7_ywtge")]
-custom_minimum_size = Vector2(32, 32)
-layout_mode = 2
-script = ExtResource("12_mvedf")
-
-[node name="MarginContainer" type="MarginContainer" parent="UI/InventoryInterface/PlayerInventory/MarginContainer/ItemGrid/@PanelContainer@111"]
-self_modulate = Color(1, 1, 1, 0)
-layout_mode = 2
-theme_override_constants/margin_left = 4
-theme_override_constants/margin_top = 4
-theme_override_constants/margin_right = 4
-theme_override_constants/margin_bottom = 4
-
-[node name="TextureRect" type="TextureRect" parent="UI/InventoryInterface/PlayerInventory/MarginContainer/ItemGrid/@PanelContainer@111/MarginContainer"]
-layout_mode = 2
-expand_mode = 1
-stretch_mode = 5
-
-[node name="QuantityLabel" type="Label" parent="UI/InventoryInterface/PlayerInventory/MarginContainer/ItemGrid/@PanelContainer@111"]
-visible = false
-layout_mode = 2
-size_flags_horizontal = 8
-size_flags_vertical = 0
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 3
-theme_override_font_sizes/font_size = 8
-text = "x99"
-
-[node name="@PanelContainer@112" type="PanelContainer" parent="UI/InventoryInterface/PlayerInventory/MarginContainer/ItemGrid" instance=ExtResource("7_ywtge")]
-custom_minimum_size = Vector2(32, 32)
-layout_mode = 2
-script = ExtResource("12_mvedf")
-
-[node name="MarginContainer" type="MarginContainer" parent="UI/InventoryInterface/PlayerInventory/MarginContainer/ItemGrid/@PanelContainer@112"]
-self_modulate = Color(1, 1, 1, 0)
-layout_mode = 2
-theme_override_constants/margin_left = 4
-theme_override_constants/margin_top = 4
-theme_override_constants/margin_right = 4
-theme_override_constants/margin_bottom = 4
-
-[node name="TextureRect" type="TextureRect" parent="UI/InventoryInterface/PlayerInventory/MarginContainer/ItemGrid/@PanelContainer@112/MarginContainer"]
-layout_mode = 2
-expand_mode = 1
-stretch_mode = 5
-
-[node name="QuantityLabel" type="Label" parent="UI/InventoryInterface/PlayerInventory/MarginContainer/ItemGrid/@PanelContainer@112"]
-visible = false
-layout_mode = 2
-size_flags_horizontal = 8
-size_flags_vertical = 0
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 3
-theme_override_font_sizes/font_size = 8
-text = "x99"
-
-[node name="@PanelContainer@113" type="PanelContainer" parent="UI/InventoryInterface/PlayerInventory/MarginContainer/ItemGrid" instance=ExtResource("7_ywtge")]
-custom_minimum_size = Vector2(32, 32)
-layout_mode = 2
-script = ExtResource("12_mvedf")
-
-[node name="MarginContainer" type="MarginContainer" parent="UI/InventoryInterface/PlayerInventory/MarginContainer/ItemGrid/@PanelContainer@113"]
-self_modulate = Color(1, 1, 1, 0)
-layout_mode = 2
-theme_override_constants/margin_left = 4
-theme_override_constants/margin_top = 4
-theme_override_constants/margin_right = 4
-theme_override_constants/margin_bottom = 4
-
-[node name="TextureRect" type="TextureRect" parent="UI/InventoryInterface/PlayerInventory/MarginContainer/ItemGrid/@PanelContainer@113/MarginContainer"]
-layout_mode = 2
-expand_mode = 1
-stretch_mode = 5
-
-[node name="QuantityLabel" type="Label" parent="UI/InventoryInterface/PlayerInventory/MarginContainer/ItemGrid/@PanelContainer@113"]
-visible = false
-layout_mode = 2
-size_flags_horizontal = 8
-size_flags_vertical = 0
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 3
-theme_override_font_sizes/font_size = 8
-text = "x99"
-
-[node name="@PanelContainer@114" type="PanelContainer" parent="UI/InventoryInterface/PlayerInventory/MarginContainer/ItemGrid" instance=ExtResource("7_ywtge")]
-custom_minimum_size = Vector2(32, 32)
-layout_mode = 2
-script = ExtResource("12_mvedf")
-
-[node name="MarginContainer" type="MarginContainer" parent="UI/InventoryInterface/PlayerInventory/MarginContainer/ItemGrid/@PanelContainer@114"]
-self_modulate = Color(1, 1, 1, 0)
-layout_mode = 2
-theme_override_constants/margin_left = 4
-theme_override_constants/margin_top = 4
-theme_override_constants/margin_right = 4
-theme_override_constants/margin_bottom = 4
-
-[node name="TextureRect" type="TextureRect" parent="UI/InventoryInterface/PlayerInventory/MarginContainer/ItemGrid/@PanelContainer@114/MarginContainer"]
-layout_mode = 2
-expand_mode = 1
-stretch_mode = 5
-
-[node name="QuantityLabel" type="Label" parent="UI/InventoryInterface/PlayerInventory/MarginContainer/ItemGrid/@PanelContainer@114"]
-visible = false
-layout_mode = 2
-size_flags_horizontal = 8
-size_flags_vertical = 0
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 3
-theme_override_font_sizes/font_size = 8
-text = "x99"
-
-[node name="@PanelContainer@115" type="PanelContainer" parent="UI/InventoryInterface/PlayerInventory/MarginContainer/ItemGrid" instance=ExtResource("7_ywtge")]
-custom_minimum_size = Vector2(32, 32)
-layout_mode = 2
-script = ExtResource("12_mvedf")
-
-[node name="MarginContainer" type="MarginContainer" parent="UI/InventoryInterface/PlayerInventory/MarginContainer/ItemGrid/@PanelContainer@115"]
-self_modulate = Color(1, 1, 1, 0)
-layout_mode = 2
-theme_override_constants/margin_left = 4
-theme_override_constants/margin_top = 4
-theme_override_constants/margin_right = 4
-theme_override_constants/margin_bottom = 4
-
-[node name="TextureRect" type="TextureRect" parent="UI/InventoryInterface/PlayerInventory/MarginContainer/ItemGrid/@PanelContainer@115/MarginContainer"]
-layout_mode = 2
-expand_mode = 1
-stretch_mode = 5
-
-[node name="QuantityLabel" type="Label" parent="UI/InventoryInterface/PlayerInventory/MarginContainer/ItemGrid/@PanelContainer@115"]
-visible = false
-layout_mode = 2
-size_flags_horizontal = 8
-size_flags_vertical = 0
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 3
-theme_override_font_sizes/font_size = 8
-text = "x99"
-
-[node name="@PanelContainer@116" type="PanelContainer" parent="UI/InventoryInterface/PlayerInventory/MarginContainer/ItemGrid" instance=ExtResource("7_ywtge")]
-custom_minimum_size = Vector2(32, 32)
-layout_mode = 2
-script = ExtResource("12_mvedf")
-
-[node name="MarginContainer" type="MarginContainer" parent="UI/InventoryInterface/PlayerInventory/MarginContainer/ItemGrid/@PanelContainer@116"]
-self_modulate = Color(1, 1, 1, 0)
-layout_mode = 2
-theme_override_constants/margin_left = 4
-theme_override_constants/margin_top = 4
-theme_override_constants/margin_right = 4
-theme_override_constants/margin_bottom = 4
-
-[node name="TextureRect" type="TextureRect" parent="UI/InventoryInterface/PlayerInventory/MarginContainer/ItemGrid/@PanelContainer@116/MarginContainer"]
-layout_mode = 2
-expand_mode = 1
-stretch_mode = 5
-
-[node name="QuantityLabel" type="Label" parent="UI/InventoryInterface/PlayerInventory/MarginContainer/ItemGrid/@PanelContainer@116"]
-visible = false
-layout_mode = 2
-size_flags_horizontal = 8
-size_flags_vertical = 0
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 3
-theme_override_font_sizes/font_size = 8
-text = "x99"
-
-[node name="@PanelContainer@117" type="PanelContainer" parent="UI/InventoryInterface/PlayerInventory/MarginContainer/ItemGrid" instance=ExtResource("7_ywtge")]
-custom_minimum_size = Vector2(32, 32)
-layout_mode = 2
-script = ExtResource("12_mvedf")
-
-[node name="MarginContainer" type="MarginContainer" parent="UI/InventoryInterface/PlayerInventory/MarginContainer/ItemGrid/@PanelContainer@117"]
-self_modulate = Color(1, 1, 1, 0)
-layout_mode = 2
-theme_override_constants/margin_left = 4
-theme_override_constants/margin_top = 4
-theme_override_constants/margin_right = 4
-theme_override_constants/margin_bottom = 4
-
-[node name="TextureRect" type="TextureRect" parent="UI/InventoryInterface/PlayerInventory/MarginContainer/ItemGrid/@PanelContainer@117/MarginContainer"]
-layout_mode = 2
-expand_mode = 1
-stretch_mode = 5
-
-[node name="QuantityLabel" type="Label" parent="UI/InventoryInterface/PlayerInventory/MarginContainer/ItemGrid/@PanelContainer@117"]
-visible = false
-layout_mode = 2
-size_flags_horizontal = 8
-size_flags_vertical = 0
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 3
-theme_override_font_sizes/font_size = 8
-text = "x99"
-
-[node name="@PanelContainer@118" type="PanelContainer" parent="UI/InventoryInterface/PlayerInventory/MarginContainer/ItemGrid" instance=ExtResource("7_ywtge")]
-custom_minimum_size = Vector2(32, 32)
-layout_mode = 2
-script = ExtResource("12_mvedf")
-
-[node name="MarginContainer" type="MarginContainer" parent="UI/InventoryInterface/PlayerInventory/MarginContainer/ItemGrid/@PanelContainer@118"]
-self_modulate = Color(1, 1, 1, 0)
-layout_mode = 2
-theme_override_constants/margin_left = 4
-theme_override_constants/margin_top = 4
-theme_override_constants/margin_right = 4
-theme_override_constants/margin_bottom = 4
-
-[node name="TextureRect" type="TextureRect" parent="UI/InventoryInterface/PlayerInventory/MarginContainer/ItemGrid/@PanelContainer@118/MarginContainer"]
-layout_mode = 2
-expand_mode = 1
-stretch_mode = 5
-
-[node name="QuantityLabel" type="Label" parent="UI/InventoryInterface/PlayerInventory/MarginContainer/ItemGrid/@PanelContainer@118"]
-visible = false
-layout_mode = 2
-size_flags_horizontal = 8
-size_flags_vertical = 0
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 3
-theme_override_font_sizes/font_size = 8
-text = "x99"
-
-[node name="@PanelContainer@119" type="PanelContainer" parent="UI/InventoryInterface/PlayerInventory/MarginContainer/ItemGrid" instance=ExtResource("7_ywtge")]
-custom_minimum_size = Vector2(32, 32)
-layout_mode = 2
-script = ExtResource("12_mvedf")
-
-[node name="MarginContainer" type="MarginContainer" parent="UI/InventoryInterface/PlayerInventory/MarginContainer/ItemGrid/@PanelContainer@119"]
-self_modulate = Color(1, 1, 1, 0)
-layout_mode = 2
-theme_override_constants/margin_left = 4
-theme_override_constants/margin_top = 4
-theme_override_constants/margin_right = 4
-theme_override_constants/margin_bottom = 4
-
-[node name="TextureRect" type="TextureRect" parent="UI/InventoryInterface/PlayerInventory/MarginContainer/ItemGrid/@PanelContainer@119/MarginContainer"]
-layout_mode = 2
-expand_mode = 1
-stretch_mode = 5
-
-[node name="QuantityLabel" type="Label" parent="UI/InventoryInterface/PlayerInventory/MarginContainer/ItemGrid/@PanelContainer@119"]
-visible = false
-layout_mode = 2
-size_flags_horizontal = 8
-size_flags_vertical = 0
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 3
-theme_override_font_sizes/font_size = 8
-text = "x99"
-
-[node name="@PanelContainer@120" type="PanelContainer" parent="UI/InventoryInterface/PlayerInventory/MarginContainer/ItemGrid" instance=ExtResource("7_ywtge")]
-custom_minimum_size = Vector2(32, 32)
-layout_mode = 2
-script = ExtResource("12_mvedf")
-
-[node name="MarginContainer" type="MarginContainer" parent="UI/InventoryInterface/PlayerInventory/MarginContainer/ItemGrid/@PanelContainer@120"]
-self_modulate = Color(1, 1, 1, 0)
-layout_mode = 2
-theme_override_constants/margin_left = 4
-theme_override_constants/margin_top = 4
-theme_override_constants/margin_right = 4
-theme_override_constants/margin_bottom = 4
-
-[node name="TextureRect" type="TextureRect" parent="UI/InventoryInterface/PlayerInventory/MarginContainer/ItemGrid/@PanelContainer@120/MarginContainer"]
-layout_mode = 2
-expand_mode = 1
-stretch_mode = 5
-
-[node name="QuantityLabel" type="Label" parent="UI/InventoryInterface/PlayerInventory/MarginContainer/ItemGrid/@PanelContainer@120"]
-visible = false
-layout_mode = 2
-size_flags_horizontal = 8
-size_flags_vertical = 0
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 3
-theme_override_font_sizes/font_size = 8
-text = "x99"
-
-[node name="@PanelContainer@121" type="PanelContainer" parent="UI/InventoryInterface/PlayerInventory/MarginContainer/ItemGrid" instance=ExtResource("7_ywtge")]
-custom_minimum_size = Vector2(32, 32)
-layout_mode = 2
-script = ExtResource("12_mvedf")
-
-[node name="MarginContainer" type="MarginContainer" parent="UI/InventoryInterface/PlayerInventory/MarginContainer/ItemGrid/@PanelContainer@121"]
-self_modulate = Color(1, 1, 1, 0)
-layout_mode = 2
-theme_override_constants/margin_left = 4
-theme_override_constants/margin_top = 4
-theme_override_constants/margin_right = 4
-theme_override_constants/margin_bottom = 4
-
-[node name="TextureRect" type="TextureRect" parent="UI/InventoryInterface/PlayerInventory/MarginContainer/ItemGrid/@PanelContainer@121/MarginContainer"]
-layout_mode = 2
-expand_mode = 1
-stretch_mode = 5
-
-[node name="QuantityLabel" type="Label" parent="UI/InventoryInterface/PlayerInventory/MarginContainer/ItemGrid/@PanelContainer@121"]
-visible = false
-layout_mode = 2
-size_flags_horizontal = 8
-size_flags_vertical = 0
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 3
-theme_override_font_sizes/font_size = 8
-text = "x99"
-
-[node name="@PanelContainer@122" type="PanelContainer" parent="UI/InventoryInterface/PlayerInventory/MarginContainer/ItemGrid" instance=ExtResource("7_ywtge")]
-custom_minimum_size = Vector2(32, 32)
-layout_mode = 2
-script = ExtResource("12_mvedf")
-
-[node name="MarginContainer" type="MarginContainer" parent="UI/InventoryInterface/PlayerInventory/MarginContainer/ItemGrid/@PanelContainer@122"]
-self_modulate = Color(1, 1, 1, 0)
-layout_mode = 2
-theme_override_constants/margin_left = 4
-theme_override_constants/margin_top = 4
-theme_override_constants/margin_right = 4
-theme_override_constants/margin_bottom = 4
-
-[node name="TextureRect" type="TextureRect" parent="UI/InventoryInterface/PlayerInventory/MarginContainer/ItemGrid/@PanelContainer@122/MarginContainer"]
-layout_mode = 2
-expand_mode = 1
-stretch_mode = 5
-
-[node name="QuantityLabel" type="Label" parent="UI/InventoryInterface/PlayerInventory/MarginContainer/ItemGrid/@PanelContainer@122"]
-visible = false
-layout_mode = 2
-size_flags_horizontal = 8
-size_flags_vertical = 0
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 3
-theme_override_font_sizes/font_size = 8
-text = "x99"
-
-[node name="@PanelContainer@123" type="PanelContainer" parent="UI/InventoryInterface/PlayerInventory/MarginContainer/ItemGrid" instance=ExtResource("7_ywtge")]
-custom_minimum_size = Vector2(32, 32)
-layout_mode = 2
-script = ExtResource("12_mvedf")
-
-[node name="MarginContainer" type="MarginContainer" parent="UI/InventoryInterface/PlayerInventory/MarginContainer/ItemGrid/@PanelContainer@123"]
-self_modulate = Color(1, 1, 1, 0)
-layout_mode = 2
-theme_override_constants/margin_left = 4
-theme_override_constants/margin_top = 4
-theme_override_constants/margin_right = 4
-theme_override_constants/margin_bottom = 4
-
-[node name="TextureRect" type="TextureRect" parent="UI/InventoryInterface/PlayerInventory/MarginContainer/ItemGrid/@PanelContainer@123/MarginContainer"]
-layout_mode = 2
-expand_mode = 1
-stretch_mode = 5
-
-[node name="QuantityLabel" type="Label" parent="UI/InventoryInterface/PlayerInventory/MarginContainer/ItemGrid/@PanelContainer@123"]
-visible = false
-layout_mode = 2
-size_flags_horizontal = 8
-size_flags_vertical = 0
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 3
-theme_override_font_sizes/font_size = 8
-text = "x99"
-
-[node name="ExternalInventory" type="PanelContainer" parent="UI/InventoryInterface" instance=ExtResource("6_7yyv2")]
+[node name="ExternalInventory" parent="UI/InventoryInterface" instance=ExtResource("6_7yyv2")]
 visible = false
 layout_mode = 0
 offset_left = 172.0
 offset_top = 118.0
 offset_right = 188.0
 offset_bottom = 134.0
-script = ExtResource("10_inylm")
 
-[node name="MarginContainer" type="MarginContainer" parent="UI/InventoryInterface/ExternalInventory"]
-layout_mode = 2
-theme_override_constants/margin_left = 8
-theme_override_constants/margin_top = 8
-theme_override_constants/margin_right = 8
-theme_override_constants/margin_bottom = 8
-
-[node name="ItemGrid" type="GridContainer" parent="UI/InventoryInterface/ExternalInventory/MarginContainer"]
-layout_mode = 2
-columns = 6
-
-[node name="MarginContainer" type="MarginContainer" parent="UI/InventoryInterface/ExternalInventory"]
-layout_mode = 2
-theme_override_constants/margin_left = 8
-theme_override_constants/margin_top = 8
-theme_override_constants/margin_right = 8
-theme_override_constants/margin_bottom = 8
-
-[node name="ItemGrid" type="GridContainer" parent="UI/InventoryInterface/ExternalInventory/MarginContainer"]
-layout_mode = 2
-columns = 6
-
-[node name="GrabbedSlot" type="PanelContainer" parent="UI/InventoryInterface" instance=ExtResource("7_ywtge")]
+[node name="GrabbedSlot" parent="UI/InventoryInterface" instance=ExtResource("7_ywtge")]
 visible = false
 self_modulate = Color(1, 1, 1, 0)
-custom_minimum_size = Vector2(32, 32)
 layout_mode = 0
 offset_left = 106.553
 offset_top = 36.7328
@@ -950,58 +373,8 @@ offset_right = 138.553
 offset_bottom = 68.7329
 tooltip_text = "Iron Ore
 A lump of iron ore"
-script = ExtResource("12_mvedf")
 
-[node name="MarginContainer" type="MarginContainer" parent="UI/InventoryInterface/GrabbedSlot"]
-self_modulate = Color(1, 1, 1, 0)
-layout_mode = 2
-theme_override_constants/margin_left = 4
-theme_override_constants/margin_top = 4
-theme_override_constants/margin_right = 4
-theme_override_constants/margin_bottom = 4
-
-[node name="TextureRect" type="TextureRect" parent="UI/InventoryInterface/GrabbedSlot/MarginContainer"]
-layout_mode = 2
-expand_mode = 1
-stretch_mode = 5
-
-[node name="QuantityLabel" type="Label" parent="UI/InventoryInterface/GrabbedSlot"]
-visible = false
-layout_mode = 2
-size_flags_horizontal = 8
-size_flags_vertical = 0
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 3
-theme_override_font_sizes/font_size = 8
-text = "x99"
-
-[node name="MarginContainer" type="MarginContainer" parent="UI/InventoryInterface/GrabbedSlot"]
-self_modulate = Color(1, 1, 1, 0)
-layout_mode = 2
-theme_override_constants/margin_left = 4
-theme_override_constants/margin_top = 4
-theme_override_constants/margin_right = 4
-theme_override_constants/margin_bottom = 4
-
-[node name="TextureRect" type="TextureRect" parent="UI/InventoryInterface/GrabbedSlot/MarginContainer"]
-layout_mode = 2
-expand_mode = 1
-stretch_mode = 5
-
-[node name="QuantityLabel" type="Label" parent="UI/InventoryInterface/GrabbedSlot"]
-visible = false
-layout_mode = 2
-size_flags_horizontal = 8
-size_flags_vertical = 0
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 3
-theme_override_font_sizes/font_size = 8
-text = "x99"
-
-[node name="ToOutside" type="Area2D" parent="." instance=ExtResource("11_sd6t8")]
-collision_layer = 2
-collision_mask = 2
-script = ExtResource("15_ib23w")
+[node name="ToOutside" parent="." instance=ExtResource("11_sd6t8")]
 scene = "outside.tscn"
 levelName = "cave.tscn"
 
@@ -1009,6 +382,12 @@ levelName = "cave.tscn"
 position = Vector2(136, 165)
 shape = SubResource("RectangleShape2D_6o00a")
 
-[connection signal="body_entered" from="Player/Area2D" to="Player" method="_on_area_2d_body_entered" flags=18]
-[connection signal="body_exited" from="Player/Area2D" to="Player" method="_on_area_2d_body_exited" flags=18]
-[connection signal="body_entered" from="ToOutside" to="ToOutside" method="_on_body_entered" flags=18]
+[node name="Ore" parent="." instance=ExtResource("10_ra1ic")]
+position = Vector2(115, 52)
+pickup_data = SubResource("Resource_xddrk")
+sprite = SubResource("AtlasTexture_uwrlk")
+
+[node name="Ore2" parent="." instance=ExtResource("10_ra1ic")]
+position = Vector2(205, 60)
+pickup_data = SubResource("Resource_f878f")
+sprite = SubResource("AtlasTexture_uxfvp")

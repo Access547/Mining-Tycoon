@@ -3,7 +3,9 @@ extends Control
 var textToDisplay: Array[String]
 var textDisplaying: int = 0
 @onready var text = $MarginContainer/MarginContainer/HBoxContainer/Text
+@onready var portrait = $MarginContainer2/Portrait
 
+var portraitImage
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -29,6 +31,7 @@ func _process(delta):
 func on_visibility_changed():
 	if visible:
 		set_text()
+		set_portrait()
 	else:
 		return
 	
@@ -36,3 +39,6 @@ func on_visibility_changed():
 
 func set_text():
 	text.text = textToDisplay[textDisplaying]
+	
+func set_portrait():
+	portrait.texture = portraitImage

@@ -1,7 +1,7 @@
 extends Resource
 class_name SlotData
 
-const maxStackSize: int = 99
+const maxStackSize: int = 5
 
 
 @export var item_data: ItemData

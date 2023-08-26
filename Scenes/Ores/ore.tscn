@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scripts/ore.gd" id="1_suukq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vlcee"]
-size = Vector2(14, 15.5)
+size = Vector2(16, 23.75)
 
 [node name="Ore" type="StaticBody2D" groups=["Interactable", "Ore"]]
 position = Vector2(0, -1)
@@ -14,12 +14,8 @@ script = ExtResource("1_suukq")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(8, 18)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["Ore"]]
-visible = false
-position = Vector2(8, 15.75)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(8, 13.125)
 shape = SubResource("RectangleShape2D_vlcee")
-
-[node name="Marker2D" type="Marker2D" parent="."]
-position = Vector2(0, 23)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]

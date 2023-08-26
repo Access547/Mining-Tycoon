@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://cc8cubisbkf2"]
+
+[ext_resource type="Script" path="res://Scripts/npc.gd" id="1_c0l6j"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uu3hy"]
+
+[node name="NPC" type="StaticBody2D" groups=["Interactable", "Talkable"]]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_c0l6j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(10, 10)
+shape = SubResource("RectangleShape2D_uu3hy")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]

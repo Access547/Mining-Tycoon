@@ -6,8 +6,8 @@ signal toggle_inventory()
 
 
 var moveSpeed = 100
-var inOreArea = false
-var ore = null
+var inInteractableArea = false
+var interactable = null
 var health = 5
 
 
@@ -34,7 +34,7 @@ func _physics_process(delta):
 	
 func _process(delta):
 	
-	if inOreArea:
+	if inInteractableArea:
 		if PlayerManager.playerCanMove:
 			if Input.is_action_just_pressed("interact"):
 				interact()
@@ -47,13 +47,13 @@ func _process(delta):
 
 func _on_area_2d_body_entered(body):
 	if body.is_in_group("Interactable"):
-		inOreArea = true
-		ore = body
+		inInteractableArea = true
+		interactable = body
 
 
 func interact():
-	if ore:
-		ore.player_interact()
+	if interactable:
+		interactable.player_interact()
 	
 	
 func get_drop_position() -> Vector2:
@@ -64,4 +64,4 @@ func heal(heal_value: int):
 
 
 func _on_area_2d_body_exited(body):
-	ore = null
+	interactable = null

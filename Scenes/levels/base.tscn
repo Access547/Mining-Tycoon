@@ -1,12 +1,14 @@
-[gd_scene load_steps=15 format=3 uid="uid://cpgttnllw727c"]
+[gd_scene load_steps=17 format=3 uid="uid://cpgttnllw727c"]
 
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_k7vrj"]
 [ext_resource type="Texture2D" uid="uid://c04pp1nu16571" path="res://Assets/Art/Environment/Tilesets/forest_/forest_.png" id="2_v72c5"]
+[ext_resource type="Texture2D" uid="uid://dp562hms40vma" path="res://Assets/Art/Environment/Backgrounds/Black background 1920x1080.png" id="2_vse37"]
 [ext_resource type="PackedScene" uid="uid://bdo0hwrwd0jtk" path="res://Scenes/player.tscn" id="3_w5ml1"]
 [ext_resource type="Resource" uid="uid://c4wqnyy1f1gmf" path="res://Inventory/test_inventory.tres" id="4_w83qa"]
 [ext_resource type="Script" path="res://Inventory/Inventory_interface.gd" id="5_g7oou"]
 [ext_resource type="PackedScene" uid="uid://c1v6skgw0d1x6" path="res://Inventory/inventory.tscn" id="6_6xul2"]
 [ext_resource type="PackedScene" uid="uid://dk8x2i7j3n26c" path="res://Inventory/slot.tscn" id="7_43iyy"]
+[ext_resource type="PackedScene" uid="uid://cflua3exk8yq8" path="res://Scenes/TextBox.tscn" id="8_hry4t"]
 [ext_resource type="PackedScene" uid="uid://c2kdefylbxb3r" path="res://Scenes/ShippingBin.tscn" id="10_3lrua"]
 [ext_resource type="PackedScene" uid="uid://ekgg6sfl4rxp" path="res://Scenes/scene_mover.tscn" id="11_5ad1j"]
 [ext_resource type="Script" path="res://Inventory/inventory_data.gd" id="17_yuxx4"]
@@ -142,6 +144,9 @@ slot_datas = Array[Resource("res://Inventory/slot_data.gd")]([null, null, null, 
 [node name="Base" type="Node2D"]
 script = ExtResource("1_k7vrj")
 
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_vse37")
+
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_y137f")
 format = 2
@@ -185,6 +190,9 @@ offset_right = 66.0689
 offset_bottom = 75.5789
 tooltip_text = "Iron Ore
 A lump of iron ore"
+
+[node name="Textbox" parent="UI" instance=ExtResource("8_hry4t")]
+visible = false
 
 [node name="ToOutside" parent="." instance=ExtResource("11_5ad1j")]
 scene = "outside.tscn"

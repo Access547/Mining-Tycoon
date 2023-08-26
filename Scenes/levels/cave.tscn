@@ -1,13 +1,15 @@
-[gd_scene load_steps=23 format=3 uid="uid://dlrckltitql55"]
+[gd_scene load_steps=25 format=3 uid="uid://dlrckltitql55"]
 
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_bhwo3"]
 [ext_resource type="Texture2D" uid="uid://c04pp1nu16571" path="res://Assets/Art/Environment/Tilesets/forest_/forest_.png" id="2_63g13"]
+[ext_resource type="Texture2D" uid="uid://dp562hms40vma" path="res://Assets/Art/Environment/Backgrounds/Black background 1920x1080.png" id="2_egtsn"]
 [ext_resource type="Texture2D" uid="uid://c20iwuwnojxrk" path="res://Assets/Art/Environment/Tilesets/cave_ [version 1.0]/cave_.png" id="3_2vx36"]
 [ext_resource type="PackedScene" uid="uid://bdo0hwrwd0jtk" path="res://Scenes/player.tscn" id="3_mvg2u"]
 [ext_resource type="Resource" uid="uid://c4wqnyy1f1gmf" path="res://Inventory/test_inventory.tres" id="4_txnh7"]
 [ext_resource type="Script" path="res://Inventory/Inventory_interface.gd" id="5_8rhgm"]
 [ext_resource type="PackedScene" uid="uid://c1v6skgw0d1x6" path="res://Inventory/inventory.tscn" id="6_7yyv2"]
 [ext_resource type="PackedScene" uid="uid://dk8x2i7j3n26c" path="res://Inventory/slot.tscn" id="7_ywtge"]
+[ext_resource type="PackedScene" uid="uid://cflua3exk8yq8" path="res://Scenes/TextBox.tscn" id="9_sssks"]
 [ext_resource type="PackedScene" uid="uid://8r1yekr2pg2l" path="res://Scenes/Ores/ore.tscn" id="10_ra1ic"]
 [ext_resource type="Resource" uid="uid://cwhf73ueqc3p0" path="res://Items/Ores/Ore_Iron.tres" id="11_10trf"]
 [ext_resource type="PackedScene" uid="uid://ekgg6sfl4rxp" path="res://Scenes/scene_mover.tscn" id="11_sd6t8"]
@@ -329,6 +331,9 @@ region = Rect2(64, 96, 16, 32)
 [node name="Cave" type="Node2D"]
 script = ExtResource("1_bhwo3")
 
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_egtsn")
+
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_y137f")
 format = 2
@@ -373,6 +378,9 @@ offset_right = 138.553
 offset_bottom = 68.7329
 tooltip_text = "Iron Ore
 A lump of iron ore"
+
+[node name="Textbox" parent="UI" instance=ExtResource("9_sssks")]
+visible = false
 
 [node name="ToOutside" parent="." instance=ExtResource("11_sd6t8")]
 scene = "outside.tscn"

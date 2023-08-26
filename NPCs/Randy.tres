@@ -9,4 +9,4 @@ script = ExtResource("1_g6kjt")
 portrait = ExtResource("1_3cfq7")
 sprite = ExtResource("3_fwwl8")
 name = "Randy"
-dialogue = Array[String](["Hello there!", "My name is Randy!"])
+dialogue = Array[String](["Hi Daisy!"])

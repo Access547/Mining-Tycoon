@@ -18,16 +18,13 @@ func _process(delta):
 		if Input.is_action_just_pressed("left_click"):
 			
 			if textDisplaying < textToDisplay.size() - 1:
-				print("dwa")
+			
 				textDisplaying += 1
 				set_text()
 			elif textDisplaying == textToDisplay.size() - 1:
 				textDisplaying = 0
 				textToDisplay.clear()
 				visible = false
-	
-	print(str("Text Displaying: ", textDisplaying))
-	print(str("Text to Display: ", textToDisplay.size()))
 func on_visibility_changed():
 	if visible:
 		set_text()

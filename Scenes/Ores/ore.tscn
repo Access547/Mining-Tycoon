@@ -1,9 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://8r1yekr2pg2l"]
+[gd_scene load_steps=4 format=3 uid="uid://8r1yekr2pg2l"]
 
 [ext_resource type="Script" path="res://Scripts/ore.gd" id="1_suukq"]
+[ext_resource type="Texture2D" uid="uid://b20gnkx02d6sq" path="res://Assets/Art/Environment/Rocks/Ores.tres" id="2_svdiq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vlcee"]
-size = Vector2(16, 23.75)
+size = Vector2(16, 9.875)
 
 [node name="Ore" type="StaticBody2D" groups=["Interactable", "Ore"]]
 position = Vector2(0, -1)
@@ -13,9 +14,13 @@ script = ExtResource("1_suukq")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(8, 18)
+texture = ExtResource("2_svdiq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(8, 13.125)
+position = Vector2(8, 26.9375)
 shape = SubResource("RectangleShape2D_vlcee")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(8, 18)

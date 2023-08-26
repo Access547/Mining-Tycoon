@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://cc8cubisbkf2"]
+[gd_scene load_steps=4 format=3 uid="uid://cc8cubisbkf2"]
 
 [ext_resource type="Script" path="res://Scripts/npc.gd" id="1_c0l6j"]
+[ext_resource type="Texture2D" uid="uid://5bi5c6e36jnp" path="res://Assets/Art/Characters/Player/Player.png" id="2_37fb3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uu3hy"]
 
@@ -14,3 +15,5 @@ position = Vector2(10, 10)
 shape = SubResource("RectangleShape2D_uu3hy")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(10, 10)
+texture = ExtResource("2_37fb3")

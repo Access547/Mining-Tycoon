@@ -5,6 +5,7 @@ const PickUp = preload("res://Items/pickup.tscn")
 @onready var player = $Player
 @onready var inventory_interface = $UI/InventoryInterface
 
+
 var spawnPos
 
 

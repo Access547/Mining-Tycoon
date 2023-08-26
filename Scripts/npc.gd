@@ -2,11 +2,12 @@ extends StaticBody2D
 
 
 @export var npcData: NPCData
+@export var textBox: Control
 
 
 func _ready():
 	$Sprite2D.texture = npcData.sprite
 	
 func player_interact():
-	print(npcData.dialogue[0])
-	print(npcData.dialogue[1])
+	textBox.textToDisplay.append_array(npcData.dialogue)
+	textBox.visible = true

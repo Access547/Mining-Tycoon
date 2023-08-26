@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://ekdluqdctul"]
+[gd_scene load_steps=18 format=3 uid="uid://ekdluqdctul"]
 
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_31pan"]
 [ext_resource type="Texture2D" uid="uid://c04pp1nu16571" path="res://Assets/Art/Environment/Tilesets/forest_/forest_.png" id="2_16xsd"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://Inventory/Inventory_interface.gd" id="5_v6b6p"]
 [ext_resource type="PackedScene" uid="uid://c1v6skgw0d1x6" path="res://Inventory/inventory.tscn" id="6_fxp1w"]
 [ext_resource type="PackedScene" uid="uid://dk8x2i7j3n26c" path="res://Inventory/slot.tscn" id="7_3iy5t"]
+[ext_resource type="PackedScene" uid="uid://cflua3exk8yq8" path="res://Scenes/TextBox.tscn" id="9_136yw"]
 [ext_resource type="PackedScene" uid="uid://cc8cubisbkf2" path="res://Scenes/npc.tscn" id="10_5fn43"]
 [ext_resource type="Resource" uid="uid://05gjl07cgy18" path="res://NPCs/Randy.tres" id="11_87i6d"]
 [ext_resource type="PackedScene" uid="uid://ekgg6sfl4rxp" path="res://Scenes/scene_mover.tscn" id="11_l5ceg"]
@@ -353,6 +354,9 @@ offset_bottom = 135.69
 tooltip_text = "Iron Ore
 A lump of iron ore"
 
+[node name="Textbox" parent="UI" instance=ExtResource("9_136yw")]
+visible = false
+
 [node name="ToCave" parent="." instance=ExtResource("11_l5ceg")]
 scene = "cave.tscn"
 levelName = "outside.tscn"
@@ -369,6 +373,7 @@ levelName = "outside.tscn"
 position = Vector2(18, 121)
 shape = SubResource("RectangleShape2D_3ktb1")
 
-[node name="Randy" parent="." instance=ExtResource("10_5fn43")]
+[node name="Randy" parent="." node_paths=PackedStringArray("textBox") instance=ExtResource("10_5fn43")]
 position = Vector2(233, 63)
 npcData = ExtResource("11_87i6d")
+textBox = NodePath("../UI/Textbox")

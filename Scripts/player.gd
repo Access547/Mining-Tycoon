@@ -2,6 +2,8 @@ extends CharacterBody2D
 
 @export var inventory_data: InventoryData
 
+@onready var textbox = $"../UI/Textbox"
+
 signal toggle_inventory()
 
 
@@ -41,7 +43,13 @@ func _process(delta):
 	
 	if Input.is_action_just_pressed("inventory"):
 		toggle_inventory.emit()
-	
+		
+	if textbox.visible:
+		if PlayerManager.playerCanMove:
+			PlayerManager.playerCanMove = false
+	elif !textbox.visible:
+		if !PlayerManager.playerCanMove:
+			PlayerManager.playerCanMove = true
 
 
 

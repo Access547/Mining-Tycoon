@@ -37,7 +37,7 @@ func _process(delta):
 		if oreParent.health <= 0:
 			oreParent.queue_free()
 			queue_free()
-			PlayerManager.playerCanMove = true
+			PlayerManager.interacting = false
 			
 				
 

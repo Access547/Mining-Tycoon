@@ -1,31 +1,39 @@
-[gd_scene load_steps=5 format=3 uid="uid://bdqs78btrygxt"]
+[gd_scene load_steps=8 format=3 uid="uid://cv12xulaofsyf"]
 
-[ext_resource type="Script" path="res://Scripts/ore.gd" id="1_pvbr8"]
-[ext_resource type="Texture2D" uid="uid://dkpbe1fuioih5" path="res://Assets/Art/Environment/Rocks/Rocks.png" id="2_k6rws"]
+[ext_resource type="Script" path="res://Scripts/ore.gd" id="1_cgi3p"]
+[ext_resource type="Resource" uid="uid://n2ft4a72cnar" path="res://Items/Ores/Ore_Copper.tres" id="2_04ycw"]
+[ext_resource type="Script" path="res://Inventory/slot_data.gd" id="3_g0h3h"]
+[ext_resource type="Texture2D" uid="uid://dkpbe1fuioih5" path="res://Assets/Art/Environment/Rocks/Rocks.png" id="4_3ti51"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_1exbf"]
-atlas = ExtResource("2_k6rws")
+[sub_resource type="Resource" id="Resource_rahsf"]
+script = ExtResource("3_g0h3h")
+item_data = ExtResource("2_04ycw")
+quantity = 1
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7238s"]
+atlas = ExtResource("4_3ti51")
 region = Rect2(64, 96, 16, 32)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vlcee"]
-size = Vector2(14, 15.5)
+size = Vector2(16, 9.875)
 
-[node name="Ore" type="StaticBody2D" groups=["Ore"]]
+[node name="Ore" type="StaticBody2D" groups=["Interactable", "Ore"]]
 position = Vector2(0, -1)
 collision_layer = 2
 collision_mask = 2
-script = ExtResource("1_pvbr8")
+script = ExtResource("1_cgi3p")
+pickup_data = SubResource("Resource_rahsf")
+pickLevelRequired = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(8, 9)
-texture = SubResource("AtlasTexture_1exbf")
+position = Vector2(8, 18)
+texture = SubResource("AtlasTexture_7238s")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["Ore"]]
-visible = false
-position = Vector2(8, 15.75)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(8, 26.9375)
 shape = SubResource("RectangleShape2D_vlcee")
 
-[node name="Marker2D" type="Marker2D" parent="."]
-position = Vector2(0, 23)
-
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(8, 18)

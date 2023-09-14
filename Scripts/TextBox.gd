@@ -10,6 +10,7 @@ var portraitImage
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	visibility_changed.connect(on_visibility_changed)
+	PlayerManager.playerCanMove = false
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -30,7 +31,8 @@ func on_visibility_changed():
 		set_text()
 		set_portrait()
 	else:
-		return
+		print("hello")
+		PlayerManager.interacting = false
 	
 	
 

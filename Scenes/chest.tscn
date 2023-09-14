@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rsyub"]
 size = Vector2(16, 13)
 
-[node name="Chest" type="StaticBody2D" groups=["Interactable", "external_inventory"]]
+[node name="Chest" type="StaticBody2D" groups=["Chest", "Interactable", "external_inventory"]]
 position = Vector2(8, 8)
 collision_layer = 2
 collision_mask = 2

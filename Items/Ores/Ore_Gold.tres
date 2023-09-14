@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=4 format=3 uid="uid://di2vyer8w2m51"]
+
+[ext_resource type="Script" path="res://Items/item_data.gd" id="1_2iix4"]
+[ext_resource type="Texture2D" uid="uid://dkpbe1fuioih5" path="res://Assets/Art/Environment/Rocks/Rocks.png" id="2_kxs7h"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j03v7"]
+atlas = ExtResource("2_kxs7h")
+region = Rect2(128, 0, 16, 16)
+
+[resource]
+script = ExtResource("1_2iix4")
+name = "Gold Ore"
+description = "A lump of gold ore. Shiny!"
+stackable = true
+value = 100
+texture = SubResource("AtlasTexture_j03v7")

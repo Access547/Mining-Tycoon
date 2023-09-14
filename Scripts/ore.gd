@@ -6,17 +6,13 @@ const pickup_scene = preload("res://Items/pickup.tscn")
 
 @export var pickup_data: SlotData
 @export var health: int = 4
-@export var sprite: AtlasTexture
+@export var pickLevelRequired: int 
 
 @onready var marker_2d = $Marker2D
 @onready var canvas_layer = $CanvasLayer
 
 
-func _ready():
-	$Sprite2D.texture = sprite
-
 func player_interact():
-	PlayerManager.playerCanMove = false
 	var minigameObj = minigame_scene.instantiate()
 	minigameObj.oreParent = self
 	canvas_layer.add_child(minigameObj)

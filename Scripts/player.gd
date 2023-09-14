@@ -36,6 +36,13 @@ func _physics_process(delta):
 	
 func _process(delta):
 	
+	
+	
+	if PlayerManager.interacting:
+		PlayerManager.playerCanMove = false
+	else:
+		PlayerManager.playerCanMove = true
+	
 	if inInteractableArea:
 		if PlayerManager.playerCanMove:
 			if Input.is_action_just_pressed("interact"):
@@ -43,13 +50,7 @@ func _process(delta):
 	
 	if Input.is_action_just_pressed("inventory"):
 		toggle_inventory.emit()
-		
-	if textbox.visible:
-		if PlayerManager.playerCanMove:
-			PlayerManager.playerCanMove = false
-	elif !textbox.visible:
-		if !PlayerManager.playerCanMove:
-			PlayerManager.playerCanMove = true
+	
 
 
 
@@ -62,6 +63,8 @@ func _on_area_2d_body_entered(body):
 func interact():
 	if interactable:
 		interactable.player_interact()
+		if !interactable.is_in_group("Chest"):
+			PlayerManager.interacting = true
 	
 	
 func get_drop_position() -> Vector2:

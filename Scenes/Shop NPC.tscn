@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://dxdefcau5o8u0"]
+
+[ext_resource type="Script" path="res://Scripts/Shop NPC.gd" id="1_4lxym"]
+[ext_resource type="Texture2D" uid="uid://kxo003w7td11" path="res://Assets/Art/Characters/NPCS/Pickaxe Salesman.png" id="1_jw50c"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jrqdh"]
+size = Vector2(11, 13)
+
+[node name="ShopNPC" type="StaticBody2D" groups=["Interactable"]]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_4lxym")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(7, 5)
+texture = ExtResource("1_jw50c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(5.5, 6.5)
+shape = SubResource("RectangleShape2D_jrqdh")

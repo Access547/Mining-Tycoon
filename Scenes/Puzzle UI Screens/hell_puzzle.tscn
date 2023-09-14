@@ -1,0 +1,100 @@
+[gd_scene load_steps=8 format=3 uid="uid://br620gn16e45r"]
+
+[ext_resource type="Texture2D" uid="uid://bfifjow10sx0y" path="res://Assets/Art/GUI/Puzzles/Hell Puzzle Symbols.tres" id="1_6bqb6"]
+[ext_resource type="Script" path="res://Scripts/Puzzles/hell_puzzle.gd" id="1_a4xwy"]
+[ext_resource type="Texture2D" uid="uid://cv6axgor06mx8" path="res://Assets/Art/GUI/Menus/Arrow button.png" id="1_puqd8"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_haurb"]
+load_path = "res://.godot/imported/Hell Symbols.png-be4c132b1fc9b828fdca8bd0a12deaac.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tqb3r"]
+atlas = SubResource("CompressedTexture2D_haurb")
+region = Rect2(0, 0, 8, 8)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_lau3e"]
+load_path = "res://.godot/imported/Hell Symbols.png-be4c132b1fc9b828fdca8bd0a12deaac.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hlun6"]
+atlas = SubResource("CompressedTexture2D_lau3e")
+region = Rect2(0, 0, 8, 8)
+
+[node name="Hell Puzzle" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_a4xwy")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -4.0
+offset_right = 40.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Left" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="LUB" type="TextureButton" parent="HBoxContainer/Left"]
+layout_mode = 2
+texture_normal = ExtResource("1_puqd8")
+flip_v = true
+
+[node name="L Symbol" type="TextureRect" parent="HBoxContainer/Left"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("1_6bqb6")
+
+[node name="LDB" type="TextureButton" parent="HBoxContainer/Left"]
+layout_mode = 2
+texture_normal = ExtResource("1_puqd8")
+
+[node name="Mid" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="MUB" type="TextureButton" parent="HBoxContainer/Mid"]
+layout_mode = 2
+texture_normal = ExtResource("1_puqd8")
+flip_v = true
+
+[node name="M Symbol" type="TextureRect" parent="HBoxContainer/Mid"]
+layout_mode = 2
+size_flags_horizontal = 6
+texture = SubResource("AtlasTexture_tqb3r")
+
+[node name="MDB" type="TextureButton" parent="HBoxContainer/Mid"]
+layout_mode = 2
+texture_normal = ExtResource("1_puqd8")
+
+[node name="Right" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="RUB" type="TextureButton" parent="HBoxContainer/Right"]
+layout_mode = 2
+texture_normal = ExtResource("1_puqd8")
+flip_v = true
+
+[node name="R Symbol" type="TextureRect" parent="HBoxContainer/Right"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_hlun6")
+
+[node name="RDB" type="TextureButton" parent="HBoxContainer/Right"]
+layout_mode = 2
+texture_normal = ExtResource("1_puqd8")
+
+[connection signal="pressed" from="HBoxContainer/Left/LUB" to="." method="_on_lub_pressed"]
+[connection signal="pressed" from="HBoxContainer/Left/LDB" to="." method="_on_ldb_pressed"]
+[connection signal="pressed" from="HBoxContainer/Mid/MUB" to="." method="_on_mub_pressed"]
+[connection signal="pressed" from="HBoxContainer/Mid/MDB" to="." method="_on_mdb_pressed"]
+[connection signal="pressed" from="HBoxContainer/Right/RUB" to="." method="_on_rub_pressed"]
+[connection signal="pressed" from="HBoxContainer/Right/RDB" to="." method="_on_rdb_pressed"]

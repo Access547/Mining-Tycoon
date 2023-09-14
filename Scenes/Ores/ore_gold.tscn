@@ -1,0 +1,38 @@
+[gd_scene load_steps=8 format=3 uid="uid://oto8yjvf8pe"]
+
+[ext_resource type="Script" path="res://Scripts/ore.gd" id="1_15fws"]
+[ext_resource type="Texture2D" uid="uid://dkpbe1fuioih5" path="res://Assets/Art/Environment/Rocks/Rocks.png" id="2_0ir6a"]
+[ext_resource type="Resource" uid="uid://di2vyer8w2m51" path="res://Items/Ores/Ore_Gold.tres" id="2_3nx1q"]
+[ext_resource type="Script" path="res://Inventory/slot_data.gd" id="3_s16ab"]
+
+[sub_resource type="Resource" id="Resource_umtc0"]
+script = ExtResource("3_s16ab")
+item_data = ExtResource("2_3nx1q")
+quantity = 1
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_728ia"]
+atlas = ExtResource("2_0ir6a")
+region = Rect2(128, 32, 16, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vlcee"]
+size = Vector2(16, 9.875)
+
+[node name="Ore" type="StaticBody2D" groups=["Interactable", "Ore"]]
+position = Vector2(0, -1)
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_15fws")
+pickup_data = SubResource("Resource_umtc0")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(8, 18)
+texture = SubResource("AtlasTexture_728ia")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(8, 26.9375)
+shape = SubResource("RectangleShape2D_vlcee")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(8, 18)

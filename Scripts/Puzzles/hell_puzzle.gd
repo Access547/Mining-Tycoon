@@ -3,10 +3,15 @@ extends Control
 var valueL = 1
 var valueM = 1
 var valueR = 1
+@export var linkyThing: StaticBody2D
+@export var pedestal: StaticBody2D
 
 func _process(delta):
 	if valueL == 4 and valueM == 7 and valueR == 2:
-		print("DoDododoodooDO!")
+		linkyThing.on = true
+		PlayerManager.interacting = false
+		pedestal.remove_from_group("Interactable")
+		queue_free()
 
 #Left
 func _on_lub_pressed():

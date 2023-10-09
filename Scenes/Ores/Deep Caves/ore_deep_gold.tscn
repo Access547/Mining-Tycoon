@@ -1,0 +1,41 @@
+[gd_scene load_steps=8 format=3 uid="uid://bhwf2jkrusfmh"]
+
+[ext_resource type="Script" path="res://Scripts/ore.gd" id="1_m1gio"]
+[ext_resource type="Resource" uid="uid://v51yg2noo6p2" path="res://Items/Ores/Ore_Deep_Gold.tres" id="2_lw388"]
+[ext_resource type="Texture2D" uid="uid://dwvxyoiq2h7ab" path="res://Assets/Art/Environment/Rocks/Ores.png" id="2_oc5ae"]
+[ext_resource type="Script" path="res://Inventory/slot_data.gd" id="3_a8mg4"]
+
+[sub_resource type="Resource" id="Resource_pp0he"]
+script = ExtResource("3_a8mg4")
+item_data = ExtResource("2_lw388")
+quantity = 1
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b8sgt"]
+atlas = ExtResource("2_oc5ae")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vlcee"]
+size = Vector2(16, 7)
+
+[node name="Ore" type="StaticBody2D" groups=["Interactable", "Ore"]]
+position = Vector2(0, -1)
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_m1gio")
+pickup_data = SubResource("Resource_pp0he")
+pickLevelRequired = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(8, 18)
+texture = SubResource("AtlasTexture_b8sgt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(8, 20.5)
+shape = SubResource("RectangleShape2D_vlcee")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Marker2D" type="Marker2D" parent="."]
+visible = false
+position = Vector2(8, 18)

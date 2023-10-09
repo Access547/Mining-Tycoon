@@ -3,19 +3,19 @@
 [ext_resource type="Script" path="res://Scripts/ore.gd" id="1_cgi3p"]
 [ext_resource type="Resource" uid="uid://n2ft4a72cnar" path="res://Items/Ores/Ore_Copper.tres" id="2_04ycw"]
 [ext_resource type="Script" path="res://Inventory/slot_data.gd" id="3_g0h3h"]
-[ext_resource type="Texture2D" uid="uid://dkpbe1fuioih5" path="res://Assets/Art/Environment/Rocks/Rocks.png" id="4_3ti51"]
+[ext_resource type="Texture2D" uid="uid://dwvxyoiq2h7ab" path="res://Assets/Art/Environment/Rocks/Ores.png" id="4_i1yv8"]
 
 [sub_resource type="Resource" id="Resource_rahsf"]
 script = ExtResource("3_g0h3h")
 item_data = ExtResource("2_04ycw")
 quantity = 1
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_7238s"]
-atlas = ExtResource("4_3ti51")
-region = Rect2(64, 96, 16, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_82dfr"]
+atlas = ExtResource("4_i1yv8")
+region = Rect2(0, 0, 16, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vlcee"]
-size = Vector2(16, 9.875)
+size = Vector2(16, 6.9375)
 
 [node name="Ore" type="StaticBody2D" groups=["Interactable", "Ore"]]
 position = Vector2(0, -1)
@@ -27,13 +27,15 @@ pickLevelRequired = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(8, 18)
-texture = SubResource("AtlasTexture_7238s")
+texture = SubResource("AtlasTexture_82dfr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(8, 26.9375)
+visible = false
+position = Vector2(8, 20.4688)
 shape = SubResource("RectangleShape2D_vlcee")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Marker2D" type="Marker2D" parent="."]
+visible = false
 position = Vector2(8, 18)

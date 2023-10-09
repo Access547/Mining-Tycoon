@@ -1,0 +1,41 @@
+[gd_scene load_steps=8 format=3 uid="uid://xqev7k5q3wcw"]
+
+[ext_resource type="Script" path="res://Scripts/ore.gd" id="1_negl6"]
+[ext_resource type="Texture2D" uid="uid://dwvxyoiq2h7ab" path="res://Assets/Art/Environment/Rocks/Ores.png" id="2_jlnqf"]
+[ext_resource type="Resource" uid="uid://cj2mbvsetdst0" path="res://Items/Ores/Ore_Deep_Copper.tres" id="2_rb4sm"]
+[ext_resource type="Script" path="res://Inventory/slot_data.gd" id="3_japtr"]
+
+[sub_resource type="Resource" id="Resource_dwfgx"]
+script = ExtResource("3_japtr")
+item_data = ExtResource("2_rb4sm")
+quantity = 1
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_joefx"]
+atlas = ExtResource("2_jlnqf")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vlcee"]
+size = Vector2(16, 7)
+
+[node name="Ore" type="StaticBody2D" groups=["Interactable", "Ore"]]
+position = Vector2(0, -1)
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_negl6")
+pickup_data = SubResource("Resource_dwfgx")
+pickLevelRequired = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(8, 18)
+texture = SubResource("AtlasTexture_joefx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(8, 20.5)
+shape = SubResource("RectangleShape2D_vlcee")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Marker2D" type="Marker2D" parent="."]
+visible = false
+position = Vector2(8, 18)

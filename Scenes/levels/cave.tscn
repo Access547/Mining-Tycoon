@@ -10,10 +10,10 @@
 [ext_resource type="PackedScene" uid="uid://c1v6skgw0d1x6" path="res://Inventory/inventory.tscn" id="6_7yyv2"]
 [ext_resource type="PackedScene" uid="uid://dk8x2i7j3n26c" path="res://Inventory/slot.tscn" id="7_ywtge"]
 [ext_resource type="PackedScene" uid="uid://cflua3exk8yq8" path="res://Scenes/TextBox.tscn" id="9_sssks"]
-[ext_resource type="PackedScene" uid="uid://8r1yekr2pg2l" path="res://Scenes/Ores/ore.tscn" id="10_ra1ic"]
+[ext_resource type="PackedScene" path="res://Scenes/Ores/ore.tscn" id="10_ra1ic"]
 [ext_resource type="PackedScene" uid="uid://ekgg6sfl4rxp" path="res://Scenes/scene_mover.tscn" id="11_sd6t8"]
-[ext_resource type="PackedScene" uid="uid://cv12xulaofsyf" path="res://Scenes/Ores/ore_copper.tscn" id="13_e338q"]
-[ext_resource type="PackedScene" uid="uid://oto8yjvf8pe" path="res://Scenes/Ores/ore_gold.tscn" id="14_sefdr"]
+[ext_resource type="PackedScene" path="res://Scenes/Ores/ore_copper.tscn" id="13_e338q"]
+[ext_resource type="PackedScene" path="res://Scenes/Ores/ore_gold.tscn" id="14_sefdr"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4mmgg"]
 texture = ExtResource("2_63g13")

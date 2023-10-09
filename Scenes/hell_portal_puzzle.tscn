@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://brcj8x3rdjqgi"]
+
+[ext_resource type="Texture2D" uid="uid://drlq7ic6qea30" path="res://Assets/Art/Environment/Tilesets/cave_ [version 1.0]/cave_objects.tres" id="1_iyss6"]
+[ext_resource type="Script" path="res://Scripts/Puzzles/hell_portal_puzzle_interact.gd" id="1_r35uh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hagni"]
+size = Vector2(12, 6)
+
+[node name="Hell Portal Puzzle" type="StaticBody2D" groups=["Interactable", "Puzzle"]]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_r35uh")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(6, 2)
+texture = ExtResource("1_iyss6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(6, 10)
+shape = SubResource("RectangleShape2D_hagni")

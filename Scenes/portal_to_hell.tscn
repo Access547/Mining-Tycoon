@@ -1,0 +1,70 @@
+[gd_scene load_steps=10 format=3 uid="uid://chkdi6p525ioe"]
+
+[ext_resource type="Script" path="res://Scripts/portal_to_hell.gd" id="1_ti06g"]
+[ext_resource type="Texture2D" uid="uid://bqp6jxgwwnkin" path="res://Assets/Art/Environment/Tilesets/Deep Caves_/Portal to Hell.png" id="1_tppi0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yl7vv"]
+atlas = ExtResource("1_tppi0")
+region = Rect2(0, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5b2de"]
+atlas = ExtResource("1_tppi0")
+region = Rect2(48, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xckim"]
+atlas = ExtResource("1_tppi0")
+region = Rect2(96, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pwo3t"]
+atlas = ExtResource("1_tppi0")
+region = Rect2(144, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ovrsi"]
+atlas = ExtResource("1_tppi0")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_buqx4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yl7vv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5b2de")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xckim")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pwo3t")
+}],
+"loop": true,
+"name": &"On",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ovrsi")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o1rkg"]
+size = Vector2(49, 20)
+
+[node name="Portal To Hell" type="StaticBody2D"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_ti06g")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(25, 14)
+sprite_frames = SubResource("SpriteFrames_buqx4")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(24.5, 25)
+shape = SubResource("RectangleShape2D_o1rkg")

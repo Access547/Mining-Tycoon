@@ -1,7 +1,7 @@
 [gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://b20gnkx02d6sq"]
 
-[ext_resource type="Texture2D" uid="uid://dkpbe1fuioih5" path="res://Assets/Art/Environment/Rocks/Rocks.png" id="1_22m0t"]
+[ext_resource type="Texture2D" uid="uid://dwvxyoiq2h7ab" path="res://Assets/Art/Environment/Rocks/Ores.png" id="1_orboy"]
 
 [resource]
-atlas = ExtResource("1_22m0t")
-region = Rect2(64, 96, 16, 32)
+atlas = ExtResource("1_orboy")
+region = Rect2(16, 0, 16, 16)

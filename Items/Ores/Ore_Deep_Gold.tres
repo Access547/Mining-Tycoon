@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=4 format=3 uid="uid://v51yg2noo6p2"]
+
+[ext_resource type="Script" path="res://Items/item_data.gd" id="1_6eses"]
+[ext_resource type="Texture2D" uid="uid://dwvxyoiq2h7ab" path="res://Assets/Art/Environment/Rocks/Ores.png" id="2_t6uq2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3dg3o"]
+atlas = ExtResource("2_t6uq2")
+region = Rect2(16, 0, 16, 16)
+
+[resource]
+script = ExtResource("1_6eses")
+name = "Deep Gold"
+description = "Ancient Civilisations sought after this ore."
+stackable = true
+value = 100
+texture = SubResource("AtlasTexture_3dg3o")
